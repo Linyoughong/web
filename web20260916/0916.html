@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>資訊三乙 林宥宏 九九乘法表</h1>
+<style>
+    table, th, td {
+  border: 1px solid rgb(218, 59, 59);
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #36d8d8;
+}
+</style>
+</head>
+<body>
+<script>
+    document.write("<table align='center'>");
+    for (let i = 0; i <= 9; i++) {
+        document.write("<tr>");
+        for (let j = 0; j <= i ; j++) {
+            document.write("<td>");
+            document.write(i + " * " + j + " = " + (i * j) + "&nbsp;&nbsp;&nbsp;");
+            document.write("</td>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+</body>
+</html>
+
