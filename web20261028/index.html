@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>石頭剪刀布</title>
+</head>
+<body>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .game {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .images {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin: 20px 0;
+    }
+
+    .images img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #388E3C;
+    }
+
+    #result {
+      margin-top: 25px;
+      color: #e65100;
+    }
+  </style>
+  <h1>石頭剪刀布</h1>
+  <p>請選擇你的出拳！</p>
+
+  <script>
+    function play(user) {
+      var computer;
+      var result;
+      var pic;
+
+      // 電腦隨機出拳
+      var num = Math.floor(Math.random() * 3);
+
+      if (num == 0) {
+        computer = "石頭";
+      } else if (num == 1) {
+        computer = "剪刀";
+      } else {
+        computer = "布";
+      }
+
+      // 判斷遊戲結果
+      if (user == computer) {
+        result = "平手！";
+      } else if (
+        (user == "石頭" && computer == "剪刀") ||
+        (user == "剪刀" && computer == "布") ||
+        (user == "布" && computer == "石頭")
+      ) {
+        result = "你贏了！";
+      } else {
+        result = "你輸了！";
+      }
+
+      // 顯示結果
+// 將出拳文字轉換成圖片檔名
+var images = {
+  "石頭": "pic/images.png",
+  "剪刀": "pic/images2.png",
+  "布": "pic/images3.png"
+};
+
+// 顯示你的出拳圖片
+document.getElementById("user").src = images[user];
+
+// 顯示電腦的出拳圖片
+document.getElementById("computer").src = images[computer];
+
+// 顯示遊戲結果
+document.getElementById("result").innerHTML = result;
+    }
+  </script>
+
+  <p>你出拳：</p>
+<img id="user" src=""
+     alt="你的出拳"
+     width="100">
+
+<p>電腦出拳：</p>
+<img id="computer" src=""
+     alt="電腦的出拳"
+     width="100">
+  <h2 id="result">請開始遊戲！</h2>
+
+  <button type="button" onclick="play('石頭')">
+    石頭
+  </button>
+
+  <button type="button" onclick="play('剪刀')">
+    剪刀
+  </button>
+
+  <button type="button" onclick="play('布')">
+    布
+  </button>
+
+</body>
+</html>
